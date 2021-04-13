@@ -10,24 +10,21 @@ int main()
     int uniq[5], cnt = 0;
     for (int i = 0; i < 10; i++)
     {
-        // Will get rid of any duplicate elements
-        bool uniqu = true;
-        for (int j = 0; j < 10; j++)
+        int element = ar[i];
+        bool uniquePart = true;
+        for (int j = 0; j < 5; j++) if (element == uniq[j])
+            {
+                uniquePart = false;
+                break;
+            }
+        if (uniquePart)
         {
-            if (i == j) continue;
-            if (ar[i] == ar[j]) uniqu = false;
-        }
-
-        // Will be executed if no duplicates are caused
-        if (uniqu)
-        {
-            uniq[cnt] = ar[i];
-            if (cnt == 5) break;
+            uniq[cnt] = element;
             cnt++;
         }
     }
 
-    // Will be removed, just testing by seeing the final values
+    // Testing results, will be removed
     cout << "uniq[5] = {";
     for (int i = 0; i < 5; i++)
     {
